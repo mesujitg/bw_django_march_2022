@@ -10,15 +10,16 @@ from news.models import News
 def show_home(request):
     categories = Category.objects.all()
     # flash_news = News.objects.filter(category_id=2).order_by('-id')[:4]
-    flash_news = News.objects.filter(category__title='Something').order_by('-id')[:4]
+    flash_news = News.objects.filter(category__title='Business').order_by('-id')[:4]
     return render(request, 'index.html', {'categories': categories,
                                           'flash_news': flash_news})
 
 
 def show_about(request):
-    return render(request, 'base.html')
+    categories = Category.objects.all()
+    return render(request, 'about.html', {'categories': categories})
 
 
 def show_contacts(request):
-    return HttpResponse('Contacts')
+    return render(request, 'contacts.html')
 

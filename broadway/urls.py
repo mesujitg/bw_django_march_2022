@@ -22,7 +22,7 @@ from broadway import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', views.show_home),
+    path('', views.show_home, name='home'),
     path('about/', include('about.urls')),
     path('news/', include('news.urls')),
     path('comment/', include('comment.urls')),

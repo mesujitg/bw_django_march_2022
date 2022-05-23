@@ -1,14 +1,19 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from news.models import News
 
 
 def show_news(request):
-    return HttpResponse('news')
+    news = News.objects.all()
+    return render(request, 'news.html', {'news': news})
 
 
 def show_news_by_category(request, cid):
-    return HttpResponse(f'category news {cid}')
+    news = News.objects.filter(category_id=cid)
+    return render(request, 'news.html', {'news': news})
 
 
 def show_single_news(request, nid):
-    return render(request, 'single.html')
+    # news = News.objects.filter(id=nid) #returns list of object/s
+    news = News.objects.get(id=nid) #returns object
+    return render(request, 'single.html', {'news': news})
