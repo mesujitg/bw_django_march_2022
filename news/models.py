@@ -1,5 +1,6 @@
-from django.contrib.auth.models import User
 from django.db import models
+
+from accounts.models import User
 from categories.models import Category
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
