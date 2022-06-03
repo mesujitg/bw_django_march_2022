@@ -134,11 +134,36 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <form method="post" action="{% url 'register' %}">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="First Name" name="fn">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Last Name" name="ln">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Mobile" name="mobile">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Address" name="address">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Username" name="un">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Password" name="pwd">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="submit" class="btn btn-primary" value="Login">
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
@@ -157,11 +182,20 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <form action="">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Username">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="submit" class="btn btn-primary" value="Login">
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
