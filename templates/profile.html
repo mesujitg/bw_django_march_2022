@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1 id="test">
+            User profile
+        </h1>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="First Name"
+                       name="fn" value="{{ request.user.first_name }}">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Last Name"
+                       name="ln" value="{{ request.user.last_name }}">
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email"
+                       name="email" value="{{ request.user.email }}">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Mobile"
+                       name="mobile" value="{{ request.user.mobile }}">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Address"
+                       name="address" value="{{ request.user.address }}">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Username"
+                       name="un" value="{{ request.user.username }}" readonly>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Password"
+                       name="password" value="{{ request.user.password }}" id="pw">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="confirm-password"
+                       name="cpassword" value="{{ request.user.password }}" id="cpw">
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Update"
+                       onclick="return myFunction()">
+            </div>
+
+            <script>
+                // alert('Hello World!');
+                // document.write('Hello World!');
+                // console.log('Hello World!');
+
+                function myFunction()
+                {
+                    // document.getElementById('test').innerHTML = 'New <i>Text</i>';
+                    // document.getElementById('test').align = 'center';
+                    // document.getElementById('test').setAttribute('class', 'my_class');
+                    // a = document.getElementById('test').getAttribute('id');
+                    // document.getElementById('test').style.color = 'red';
+
+                    pwd = document.getElementById('pw').value;
+                    cpwd = document.getElementById('cpw').value;
+                    if(pwd !== cpwd){
+                        alert('Password mismatch');
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
