@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
 from broadway.settings import MEDIA_URL
 from news.models import News
 
